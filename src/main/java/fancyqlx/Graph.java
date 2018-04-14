@@ -23,6 +23,18 @@ public class Graph{
         return vertices.get(ID);
     }
 
+    public Set<Integer> getVertexIDs(){
+        return vertices.keySet();
+    }
+
+    public Set<Vertex> getVertices(){
+        Set<Vertex> ret = new TreeSet<>();
+        for(Map.Entry<Integer,Vertex> entry: vertices.entrySet()){
+            ret.add(entry.getValue());
+        }
+        return ret;
+    }
+
     public int getN(){
         return n;
     }
@@ -87,30 +99,35 @@ public class Graph{
     }
 }
 
+
+
 /**
  * Message is a class representing the message delivered
  * in the process of any algorithm in the graph.
  */
-class Message {
+abstract class Message {
 
 }
+
+
 
 /**
  * Vertex is a class representing the entity of a
  * vertex in the graph.
  */
-class Vertex {
+class Vertex implements Comparable<Vertex>{
     private Integer ID; // the identity of the vertex
     private Map<Integer, Vertex> neighbors; // a map for storing neighbors of vertex
     private Map<Integer, Message> receiver; // a map for storing received messages for each neighbor
     private Map<Integer, Integer> weights; // a map for storing edge weights for each neighbor
-
+    private Map<Integer, Integer> hops; // a map for storing hops to each vertex
 
     public Vertex(Integer ID){
         this.ID = ID;
         neighbors = new HashMap<>();
         receiver = new HashMap<>();
         weights = new HashMap<>();
+        hops = new HashMap<>();
     }
 
     public Integer getID(){
@@ -158,6 +175,41 @@ class Vertex {
             return false;
         }
         return true;
+    }
+
+    public Integer getHop(Integer ID) {
+        return hops.get(ID);
+    }
+
+    public void updateHop(Integer ID, Integer h){
+        hops.put(ID,h);
+    }
+
+    public boolean send(Integer ID, Message msg){
+        Vertex v = neighbors.get(ID);
+        if(v!=null){
+            v.receiver.put(this.ID,msg);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean boardcast(Message msg){
+        for(Integer i: neighbors.keySet()){
+            if(!send(i,msg))
+                return false;
+        }
+        return true;
+    }
+
+    public Message extractMsg(Integer ID){
+        Message msg = receiver.get(ID);
+        receiver.remove(ID);
+        return msg;
+    }
+
+    public int compareTo(Vertex v){
+        return Integer.compare(ID,v.ID);
     }
 }
 
