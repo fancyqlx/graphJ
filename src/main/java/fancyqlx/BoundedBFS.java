@@ -1,9 +1,9 @@
 package fancyqlx;
 
-public class Algorithm implements GraphAlgorithm {
+public class BoundedBFS{
 
     private Graph g;
-    public Algorithm(Graph g){
+    public BoundedBFS(Graph g){
         this.g = g;
     }
 

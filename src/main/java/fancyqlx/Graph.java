@@ -121,6 +121,7 @@ class Vertex implements Comparable<Vertex>{
     private Map<Integer, Message> receiver; // a map for storing received messages for each neighbor
     private Map<Integer, Integer> weights; // a map for storing edge weights for each neighbor
     private Map<Integer, Integer> hops; // a map for storing hops to each vertex
+    private Map<Integer, Integer> distance; // a map for storing distance
 
     public Vertex(Integer ID){
         this.ID = ID;
@@ -128,6 +129,7 @@ class Vertex implements Comparable<Vertex>{
         receiver = new HashMap<>();
         weights = new HashMap<>();
         hops = new HashMap<>();
+        distance = new HashMap<>();
     }
 
     public Integer getID(){
@@ -185,6 +187,14 @@ class Vertex implements Comparable<Vertex>{
         hops.put(ID,h);
     }
 
+    public Integer getDistance(Integer ID) {
+        return distance.get(ID);
+    }
+
+    public void updateDistance(Integer ID, Integer dist){
+        distance.put(ID,dist);
+    }
+
     public boolean send(Integer ID, Message msg){
         Vertex v = neighbors.get(ID);
         if(v!=null){
@@ -211,14 +221,4 @@ class Vertex implements Comparable<Vertex>{
     public int compareTo(Vertex v){
         return Integer.compare(ID,v.ID);
     }
-}
-
-interface LocalComputation {
-
-    boolean sendMsg(Integer ID, Message msg);
-
-}
-
-interface GraphAlgorithm {
-
 }
