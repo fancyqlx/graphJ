@@ -10,10 +10,10 @@ public class BellmanFord {
 
     public class BellmanFordMessage extends Message implements Comparable<BellmanFordMessage>{
         Integer ID;
-        Integer hop;
-        public BellmanFordMessage(Integer ID, Integer hop){
+        Integer dist;
+        public BellmanFordMessage(Integer ID, Integer dist){
             this.ID = ID;
-            this.hop = hop;
+            this.dist = dist;
         }
 
         public int compareTo(BellmanFordMessage msg){
@@ -30,13 +30,14 @@ public class BellmanFord {
     public void run(){
         Integer n = g.getN();
         Integer m = g.getM();
+        Integer W = g.getW();
         // Initialize messages for each vertex to send
         for(Integer i : g.getVertexIDs()){
             Vertex v = g.getVertex(i);
             for(Integer j: g.getVertexIDs()){
-                v.updateHop(j,m);
+                v.updateDistance(j,m*W);
             }
-            v.updateHop(i,0);
+            v.updateDistance(i,0);
             outMsg.put(i,new LinkedList<>());
             outMsg.get(i).add(new BellmanFordMessage(i,0));
         }
@@ -54,7 +55,7 @@ public class BellmanFord {
                 }
             }
 
-            // receive messages from neighbors and update hops
+            // receive messages from neighbors and update distance
             for(Vertex v: g.getVertices()){
                 Integer ID = v.getID();
                 for(Integer j: v.getNeighbors()){
@@ -62,11 +63,11 @@ public class BellmanFord {
                     BellmanFordMessage bMsg = null;
                     if(msg instanceof BellmanFordMessage){
                         bMsg = (BellmanFordMessage) msg;
-
-                        // update hops and add new message
-                        if(bMsg.hop+1<v.getHop(bMsg.ID)){
-                            v.updateHop(bMsg.ID,bMsg.hop+1);
-                            outMsg.get(ID).add(new BellmanFordMessage(bMsg.ID,bMsg.hop+1));
+                        int weight = v.getWeight(j);
+                        // update distance and add new message
+                        if(bMsg.dist+weight<v.getDistance(bMsg.ID)){
+                            v.updateDistance(bMsg.ID,bMsg.dist+weight);
+                            outMsg.get(ID).add(new BellmanFordMessage(bMsg.ID,bMsg.dist+weight));
                         }
                     }
 
@@ -78,11 +79,11 @@ public class BellmanFord {
 
     }
 
-    public void printHops(){
+    public void printDistance(){
         for(Vertex v: g.getVertices()){
             System.out.printf("%d :", v.getID());
             for(Integer i: g.getVertexIDs()){
-                System.out.printf("{%d,%d} ", i, v.getHop(i));
+                System.out.printf("{%d,%d} ", i, v.getDistance(i));
             }
             System.out.println();
         }
@@ -98,7 +99,7 @@ public class BellmanFord {
         constructor.construct();
         BellmanFord alg = new BellmanFord(g);
         alg.run();
-        alg.printHops();
+        alg.printDistance();
     }
 
 }
