@@ -5,7 +5,7 @@ import java.util.*;
 public class BellmanFord {
 
     private Graph g;
-    // A map for storing hop from
+    // a map for storing distance from neighbors
     private Map<Integer, Queue<BellmanFordMessage>> outMsg;
 
     public class BellmanFordMessage extends Message implements Comparable<BellmanFordMessage>{

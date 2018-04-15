@@ -5,7 +5,7 @@ import java.util.*;
 public class Diameter {
 
     private Graph g;
-    // A map for storing hop from
+    // A map for storing hop from neighbors
     private Map<Integer, Queue<DiameterMessage>> outMsg;
     private Integer D;
 

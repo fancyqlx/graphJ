@@ -122,6 +122,7 @@ class Vertex implements Comparable<Vertex>{
     private Map<Integer, Integer> weights; // a map for storing edge weights for each neighbor
     private Map<Integer, Integer> hops; // a map for storing hops to each vertex
     private Map<Integer, Integer> distance; // a map for storing distance
+    private Map<Integer, Integer> pre;// storing father vertex of each vertex in each BFS tree
 
     public Vertex(Integer ID){
         this.ID = ID;
@@ -130,6 +131,7 @@ class Vertex implements Comparable<Vertex>{
         weights = new HashMap<>();
         hops = new HashMap<>();
         distance = new HashMap<>();
+        pre = new HashMap<>();
     }
 
     public Integer getID(){
@@ -193,6 +195,14 @@ class Vertex implements Comparable<Vertex>{
 
     public void updateDistance(Integer ID, Integer dist){
         distance.put(ID,dist);
+    }
+
+    public Integer getPre(Integer ID){
+        return pre.get(ID);
+    }
+
+    public void updatePre(Integer ID, Integer p){
+        pre.put(ID,p);
     }
 
     public boolean send(Integer ID, Message msg){
