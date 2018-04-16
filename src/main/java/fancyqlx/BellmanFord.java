@@ -7,6 +7,7 @@ public class BellmanFord {
     private Graph g;
     // a map for storing distance from neighbors
     private Map<Integer, Queue<BellmanFordMessage>> outMsg;
+    private int round; // round complexity counter
 
     public class BellmanFordMessage extends Message implements Comparable<BellmanFordMessage>{
         Integer ID;
@@ -25,6 +26,7 @@ public class BellmanFord {
     public BellmanFord(Graph g){
         this.g = g;
         outMsg = new HashMap<>();
+        this.round = 0;
     }
 
     public void run(){
@@ -74,9 +76,13 @@ public class BellmanFord {
                 }
                 if(outMsg.get(ID).isEmpty()) num--;
             }
-
+            this.round++;
         }
 
+    }
+
+    public int getRound(){
+        return round;
     }
 
     public void printDistance(){
@@ -100,6 +106,7 @@ public class BellmanFord {
         BellmanFord alg = new BellmanFord(g);
         alg.run();
         alg.printDistance();
+        System.out.printf("rounds = %d\n", alg.getRound());
     }
 
 }

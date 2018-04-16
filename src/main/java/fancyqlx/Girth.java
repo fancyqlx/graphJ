@@ -3,13 +3,13 @@ package fancyqlx;
 import java.lang.Math;
 
 public class Girth {
-    private int t;
-    private int alpha;
-    private int beta;
-    private int phase;
+    private int t; // distance constraint
+    private int alpha; // lower bound
+    private int beta; // upper bound
+    private int phase; // phase counter
     private Graph g;
-    private int gmin;
-    private int girth;
+    private int gmin; // min{gv}
+    private int girth; // the value of girth
 
     public Girth(Graph g){
         this.t = 1;
@@ -23,6 +23,7 @@ public class Girth {
 
     public void run(){
         while(beta - alpha > 2){
+            phase++;
             // update t
             if(beta < g.getN()*g.getW()) {
                 if(t==(alpha+beta)/4){
@@ -49,7 +50,7 @@ public class Girth {
                     beta = Math.min(beta,gmin);
                 }
             }
-            phase++;
+            //System.out.printf("%d,%d,%d,%d\n", phase,t,alpha,beta);
         }
         girth = beta;
     }

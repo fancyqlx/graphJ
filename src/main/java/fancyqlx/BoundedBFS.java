@@ -12,6 +12,7 @@ public class BoundedBFS{
     private boolean condition1 = false;
     private boolean condition2 = false;
     private int gmin;
+    private int round; // round complexity counter
 
     // a map for storing distance from neighbors
     private Map<Integer, PriorityQueue<BFSMessage>> outMsg;
@@ -37,6 +38,7 @@ public class BoundedBFS{
         outMsg = new HashMap<>();
         this.t = t;
         this.gmin = 2*maxDist;
+        this.round = 0;
     }
 
     public void run(){
@@ -98,8 +100,9 @@ public class BoundedBFS{
                 }
                 if(outMsg.get(ID).isEmpty()) num--;
             }
-
+            this.round++;
         }
+
         condition2 = true;
         computeGmin();
     }
@@ -137,6 +140,10 @@ public class BoundedBFS{
         return gmin;
     }
 
+    public int getRound() {
+        return round;
+    }
+
     public static void main(String[] args){
         String path = "graphData/data.in";
         int B = 1;
@@ -154,6 +161,7 @@ public class BoundedBFS{
             System.out.println("Condition2");
         }
         System.out.printf("gmin=%d\n",alg.getGmin());
+        System.out.printf("rounds = %d\n", alg.getRound());
     }
 
 }

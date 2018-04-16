@@ -7,7 +7,8 @@ public class Diameter {
     private Graph g;
     // A map for storing hop from neighbors
     private Map<Integer, Queue<DiameterMessage>> outMsg;
-    private Integer D;
+    private int D;
+    private int round = 0; // round compleixty counter
 
     public class DiameterMessage extends Message implements Comparable<DiameterMessage>{
         Integer ID;
@@ -75,7 +76,7 @@ public class Diameter {
                 }
                 if(outMsg.get(ID).isEmpty()) num--;
             }
-
+            this.round++;
         }
 
         for(Vertex v: g.getVertices()){
@@ -88,8 +89,12 @@ public class Diameter {
 
     }
 
-    public Integer getDiameter(){
+    public int getDiameter(){
         return D;
+    }
+
+    public int getRound(){
+        return round;
     }
 
     public void printHops(){
@@ -114,6 +119,7 @@ public class Diameter {
         alg.run();
         alg.printHops();
         System.out.printf("Diameter is %d\n", alg.getDiameter());
+        System.out.printf("rounds = %d\n", alg.getRound());
     }
 
 }
