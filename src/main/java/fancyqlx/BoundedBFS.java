@@ -160,7 +160,7 @@ public class BoundedBFS{
         }else{
             System.out.println("Condition2");
         }
-        System.out.printf("gmin=%d\n",alg.getGmin());
+        System.out.printf("gmin = %d\n",alg.getGmin());
         System.out.printf("rounds = %d\n", alg.getRound());
     }
 

@@ -32,7 +32,7 @@ public class TrivalBFS {
         }
     }
 
-    public TrivalBFS(Graph g, Integer t){
+    public TrivalBFS(Graph g){
         this.g = g;
         this.maxDist = g.getN()*g.getW();
         outMsg = new HashMap<>();
@@ -119,9 +119,9 @@ public class TrivalBFS {
         ConstructGraph constructor = new ConstructGraph(path,g);
         constructor.construct();
         // Printing graph
-        TrivalBFS alg = new TrivalBFS(g, 5);
+        TrivalBFS alg = new TrivalBFS(g);
         alg.run();
-        System.out.printf("gmin=%d\n",alg.getGrith());
+        System.out.printf("gmin = %d\n",alg.getGrith());
         System.out.printf("rounds = %d\n", alg.getRound());
     }
 
