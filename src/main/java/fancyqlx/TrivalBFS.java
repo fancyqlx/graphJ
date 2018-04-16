@@ -19,7 +19,6 @@ public class TrivalBFS {
     private Map<Integer, PriorityQueue<BFSMessage>> outMsg;
 
     public class BFSMessage extends Message implements Comparable<BFSMessage>{
-        Integer hop;
         Integer src;
         Integer dist;
         public BFSMessage(Integer src, Integer dist){
