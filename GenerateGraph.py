@@ -32,4 +32,3 @@ if __name__ == "__main__":
     for i in range(0,9):
         w = w + 10
         generateGraph(n,m,w)
-        
