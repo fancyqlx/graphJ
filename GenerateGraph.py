@@ -1,6 +1,5 @@
 import random
 import networkx as nx
-import sys
 
 def generateGraph(n,m,w):
     filepath = "graphData/graph-"+str(n)+"-"+str(m)+"-"+str(w)

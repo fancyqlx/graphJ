@@ -44,6 +44,11 @@ public class Graph{
     public int getB(){
         return B;
     }
+
+    /**
+     * addN is a function for counting the number of vertices that
+     * is a part of the graph. Note that we omit the isolated points.
+     */
     public void addN(){
         n++;
     }

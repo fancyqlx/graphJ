@@ -1,5 +1,8 @@
 package fancyqlx;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -15,7 +18,7 @@ public class TrivalBFS {
     private int gmin;
     private int round; // round complexity counter
 
-    // a map for storing distance from neighbors
+    // a map representing a queue for sending messages
     private Map<Integer, PriorityQueue<BFSMessage>> outMsg;
 
     public class BFSMessage extends Message implements Comparable<BFSMessage>{
@@ -109,19 +112,68 @@ public class TrivalBFS {
         return round;
     }
 
+    public void writeResult(String filepath){
+        try{
+            BufferedWriter writer = new BufferedWriter((new FileWriter(filepath,true)));
+            String s = Integer.toString(g.getN()) + " " + Integer.toString(g.getM()) +
+                    " " + Integer.toString(round) +'\n';
+            writer.write(s);
+            writer.close();
+        }catch (IOException e){
+
+        }
+    }
+
     public static void main(String[] args){
-        String path = "graphData/data.in";
-        int B = 1;
-        // Defining a new graph
-        Graph g = new Graph(B);
-        // Constructing graph
-        ConstructGraph constructor = new ConstructGraph(path,g);
-        constructor.construct();
-        // Printing graph
-        TrivalBFS alg = new TrivalBFS(g);
-        alg.run();
-        System.out.printf("gmin = %d\n",alg.getGrith());
-        System.out.printf("rounds = %d\n", alg.getRound());
+        int n = 50;
+        int m = (int)(1.2 * n);
+        int w = 10;
+        for(int i=0;i<10;i++){
+            m = (int)(1.2 * n);
+            String path = "graphData/graph-"+Integer.toString(n)+
+                    "-"+Integer.toString(m)+"-"+Integer.toString(w);
+            int B = 1;
+            // Defining a new graph
+            Graph g = new Graph(B);
+            // Constructing graph
+            ConstructGraph constructor = new ConstructGraph(path,g);
+            if(constructor.construct()){
+                // Printing graph
+                TrivalBFS alg = new TrivalBFS(g);
+                alg.run();
+                System.out.printf("round = %d\n",alg.getRound());
+                String resultFile = "results/TrivalBFS-"+Integer.toString(n)+
+                        "-"+Integer.toString(m)+"-"+Integer.toString(w);
+                alg.writeResult(resultFile);
+                n = n + 50;
+            }else{
+                break;
+            }
+        }
+
+        n = 50;
+        m = (int)(1.2 * n);
+        for(int i=0;i<9;i++){
+            w = w + 10;
+            String path = "graphData/graph-"+Integer.toString(n)+
+                    "-"+Integer.toString(m)+"-"+Integer.toString(w);
+            int B = 1;
+            // Defining a new graph
+            Graph g = new Graph(B);
+            // Constructing graph
+            ConstructGraph constructor = new ConstructGraph(path,g);
+            if(constructor.construct()){
+                // Printing graph
+                TrivalBFS alg = new TrivalBFS(g);
+                alg.run();
+                System.out.printf("round = %d\n",alg.getRound());
+                String resultFile = "results/TrivalBFS-"+Integer.toString(n)+
+                        "-"+Integer.toString(m)+"-"+Integer.toString(w);
+                alg.writeResult(resultFile);
+            }else{
+                break;
+            }
+        }
     }
 
 }
