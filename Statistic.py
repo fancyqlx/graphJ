@@ -50,11 +50,11 @@ def travelGirthFiles():
     ywp = [] # y-axis of p when x-axis is w
     ywr = [] # y-axis of r when x-axis is w
     files = os.listdir(dirPath)
-    N = 50
+    N = 100
     M = int(1.2*N)
     W = 10
     # read files that n is changed
-    for i in xrange(0,10):
+    for i in xrange(0,20):
         filename = "Girth-"+str(N)+"-"+str(M)+"-"+str(W)
         for fn in files:
             if(not os.path.isdir(fn)) and fn == filename:
@@ -63,11 +63,11 @@ def travelGirthFiles():
                     xn.append(n)
                     ynp.append(p)
                     ynr.append(r)
-        N += 50
+        N += 100
         M = int(1.2*N)
 
     # read files that w is changed
-    N = 50
+    N = 100
     M = int(1.2*N)
     for i in xrange(0,10):
         filename = "Girth-"+str(N)+"-"+str(M)+"-"+str(W)
@@ -89,11 +89,11 @@ def travelFiles(algName):
     ynr = [] # y-axis of r when x-axis is n
     ywr = [] # y-axis of r when x-axis is w
     files = os.listdir(dirPath)
-    N = 50
+    N = 100
     M = int(1.2*N)
     W = 10
     # read files that n is changed
-    for i in xrange(0,10):
+    for i in xrange(0,20):
         filename = algName+"-"+str(N)+"-"+str(M)+"-"+str(W)
         for fn in files:
             if(not os.path.isdir(fn)) and fn == filename:
@@ -101,11 +101,11 @@ def travelFiles(algName):
                     n,m,r = average(f)
                     xn.append(n)
                     ynr.append(r)
-        N += 50
+        N += 100
         M = int(1.2*N)
 
     # read files that w is changed
-    N = 50
+    N = 100
     M = int(1.2*N)
     for i in xrange(0,10):
         filename = algName+"-"+str(N)+"-"+str(M)+"-"+str(W)
@@ -125,7 +125,8 @@ def drawFicGirth(x,y,labelx,labely,filename):
     plt.ylabel(labely)
     plt.subplots_adjust(left=0.15,right=0.95)
     plt.savefig("resultPics/"+filename+".png", format='png')
-    plt.show()
+    #plt.show()
+    plt.close()
 
 # generate pictures
 def drawFic(gx,gy,bx,by,tx,ty,labelx,labely,filename):
@@ -136,7 +137,8 @@ def drawFic(gx,gy,bx,by,tx,ty,labelx,labely,filename):
     plt.ylabel(labely)
     plt.subplots_adjust(left=0.15,right=0.95)
     plt.savefig("resultPics/"+filename+".png", format='png')
-    plt.show()
+    #plt.show()
+    plt.close()
 
 if __name__ == "__main__":
     BellmanFord = "BellmanFord"
@@ -151,4 +153,4 @@ if __name__ == "__main__":
     drawFicGirth(g_xw,g_ywp,"w","the number of phases","girth_w_p")
     # two pictures for comparision
     drawFic(g_xn,g_ynr,b_xn,b_ynr,t_xn,t_ynr,"n","round complexity","cmp_n_r")
-    drawFic(g_xw,g_ywr,b_xw,b_ywr,t_xw,t_ywr,"w","round complexity","cmp_n_r")
+    drawFic(g_xw,g_ywr,b_xw,b_ywr,t_xw,t_ywr,"w","round complexity","cmp_w_r")

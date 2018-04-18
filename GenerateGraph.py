@@ -19,14 +19,14 @@ if __name__ == "__main__":
         exit()
     n = int(sys.argv[1])
     w = int(sys.argv[2]) '''
-    n = 50
+    n = 100
     w = 10
-    for i in range(0,10):
+    for i in range(0,20):
         m = int(1.2*n)
         generateGraph(n,m,w)
-        n = n + 50
+        n = n + 100
 
-    n = 50
+    n = 100
     m = int(1.2*n)
     for i in range(0,9):
         w = w + 10
