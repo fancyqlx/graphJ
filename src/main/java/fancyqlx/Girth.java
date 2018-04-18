@@ -87,10 +87,10 @@ public class Girth {
 
 
     public static void main(String[] args){
-        int n = 50;
+        int n = 100;
         int m = (int)(1.2 * n);
         int w = 10;
-        for(int i=0;i<10;i++){
+        for(int i=0;i<20;i++){
             m = (int)(1.2 * n);
             String path = "graphData/graph-"+Integer.toString(n)+
                     "-"+Integer.toString(m)+"-"+Integer.toString(w);
@@ -109,13 +109,13 @@ public class Girth {
                 String resultFile = "results/Girth-"+Integer.toString(n)+
                         "-"+Integer.toString(m)+"-"+Integer.toString(w);
                 alg.writeResult(resultFile);
-                n = n + 50;
+                n = n + 100;
             }else{
                 break;
             }
         }
 
-        n = 50;
+        n = 100;
         m = (int)(1.2 * n);
         for(int i=0;i<9;i++){
             w = w + 10;
