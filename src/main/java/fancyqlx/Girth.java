@@ -9,20 +9,18 @@ public class Girth {
     private int t; // distance constraint
     private int alpha; // lower bound
     private int beta; // upper bound
-    private int phase; // phase counter
+    private int phase = 0; // phase counter
     private Graph g;
     private int gmin; // min{gv}
-    private int girth; // the value of girth
-    private int round; // the round complexity counter
+    private int girth = 0; // the value of girth
+    private int round = 0; // the round complexity counter
 
     public Girth(Graph g){
         this.t = 1;
         this.alpha = 3;
         this.g = g;
         this.beta = g.getN()*g.getW();
-        this.phase = 0;
         this.gmin = 2*g.getN()*g.getW();
-        this.girth = 0;
     }
 
     public void run(){
@@ -89,7 +87,7 @@ public class Girth {
     public static void main(String[] args){
         int n = 100;
         int m = (int)(1.2 * n);
-        int w = 10;
+        int w = n;
         for(int i=0;i<20;i++){
             m = (int)(1.2 * n);
             String path = "graphData/graph-"+Integer.toString(n)+
@@ -110,12 +108,13 @@ public class Girth {
                         "-"+Integer.toString(m)+"-"+Integer.toString(w);
                 alg.writeResult(resultFile);
                 n = n + 100;
+                w = n;
             }else{
                 break;
             }
         }
 
-        n = 100;
+        /*n = 100;
         m = (int)(1.2 * n);
         for(int i=0;i<9;i++){
             w = w + 10;
@@ -139,6 +138,6 @@ public class Girth {
             }else{
                 break;
             }
-        }
+        }*/
     }
 }

@@ -52,7 +52,7 @@ def travelGirthFiles():
     files = os.listdir(dirPath)
     N = 100
     M = int(1.2*N)
-    W = 10
+    W = N
     # read files that n is changed
     for i in xrange(0,20):
         filename = "Girth-"+str(N)+"-"+str(M)+"-"+str(W)
@@ -65,9 +65,11 @@ def travelGirthFiles():
                     ynr.append(r)
         N += 100
         M = int(1.2*N)
+        W = N
 
     # read files that w is changed
     N = 100
+    W = 10
     M = int(1.2*N)
     for i in xrange(0,10):
         filename = "Girth-"+str(N)+"-"+str(M)+"-"+str(W)

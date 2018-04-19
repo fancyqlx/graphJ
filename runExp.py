@@ -24,11 +24,12 @@ def run():
         print "run %d-th experiment" % i
         generateGraph()
         runGirth()
-        runTrivalBFS()
-        runBellmanFord()
+        #runTrivalBFS()
+        #runBellmanFord()
 
     runStatistic()
 
 if __name__ == "__main__":
+    compileJavaSource()
     run()
 
