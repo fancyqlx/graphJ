@@ -136,11 +136,12 @@ def drawFicGirth(x,y,labelx,labely,filename):
 
 # generate pictures
 def drawFic(gx,gy,bx,by,tx,ty,labelx,labely,filename):
-    plt.plot(gx,gy,"k-")
-    plt.plot(bx,by,"k--")
-    plt.plot(tx,ty,"k:")
+    l1, = plt.plot(gx,gy,"k-")
+    l2, = plt.plot(bx,by,"k--")
+    l3, = plt.plot(tx,ty,"k:")
     plt.xlabel(labelx)
     plt.ylabel(labely)
+    plt.legend(handles=[l1,l2,l3], labels=['Bounded BFS','Bellman-Ford','n BFS'],loc='best')
     plt.subplots_adjust(left=0.15,right=0.95)
     plt.savefig("resultPics/"+filename+".png", format='png')
     #plt.show()
