@@ -219,7 +219,7 @@ class Vertex implements Comparable<Vertex>{
         return false;
     }
 
-    public boolean boardcast(Message msg){
+    public boolean broadcast(Message msg){
         for(Integer i: neighbors.keySet()){
             if(!send(i,msg))
                 return false;

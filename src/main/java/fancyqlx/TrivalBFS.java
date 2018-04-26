@@ -127,7 +127,7 @@ public class TrivalBFS {
     public static void main(String[] args){
         int n = 100;
         int m = (int)(1.2 * n);
-        int w = 10;
+        int w = n;
         for(int i=0;i<20;i++){
             m = (int)(1.2 * n);
             String path = "graphData/graph-"+Integer.toString(n)+
@@ -146,12 +146,13 @@ public class TrivalBFS {
                         "-"+Integer.toString(m)+"-"+Integer.toString(w);
                 alg.writeResult(resultFile);
                 n = n + 100;
+                w = n;
             }else{
                 break;
             }
         }
 
-        n = 100;
+        /*n = 100;
         m = (int)(1.2 * n);
         for(int i=0;i<9;i++){
             w = w + 10;
@@ -173,7 +174,7 @@ public class TrivalBFS {
             }else{
                 break;
             }
-        }
+        }*/
     }
 
 }

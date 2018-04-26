@@ -56,7 +56,7 @@ public class BellmanFord {
                 Queue<BellmanFordMessage> q = outMsg.get(ID);
                 if(!q.isEmpty()){
                     BellmanFordMessage msg = q.poll();
-                    v.boardcast(msg);
+                    v.broadcast(msg);
                 }
             }
 
@@ -113,7 +113,7 @@ public class BellmanFord {
     public static void main(String[] args){
         int n = 100;
         int m = (int)(1.2 * n);
-        int w = 10;
+        int w = n;
         for(int i=0;i<20;i++){
             m = (int)(1.2 * n);
             String path = "graphData/graph-"+Integer.toString(n)+
@@ -132,12 +132,13 @@ public class BellmanFord {
                         "-"+Integer.toString(m)+"-"+Integer.toString(w);
                 alg.writeResult(resultFile);
                 n = n + 100;
+                w = n;
             }else{
                 break;
             }
         }
 
-        n = 100;
+        /*n = 100;
         m = (int)(1.2 * n);
         for(int i=0;i<9;i++){
             w = w + 10;
@@ -159,7 +160,7 @@ public class BellmanFord {
             }else{
                 break;
             }
-        }
+        }*/
     }
 
 }

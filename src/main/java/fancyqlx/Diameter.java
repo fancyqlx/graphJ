@@ -53,7 +53,7 @@ public class Diameter {
                 Queue<DiameterMessage> q = outMsg.get(ID);
                 if(!q.isEmpty()){
                     DiameterMessage msg = q.poll();
-                    v.boardcast(msg);
+                    v.broadcast(msg);
                 }
             }
 
@@ -108,7 +108,7 @@ public class Diameter {
     }
 
     public static void main(String[] args){
-        String path = "graphData/data.in";
+        String path = "graphData/graph-100-120-100";
         int B = 1;
         // Defining a new graph
         Graph g = new Graph(B);
