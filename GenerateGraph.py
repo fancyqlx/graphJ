@@ -13,6 +13,18 @@ def generateGraph(n,m,w):
             lines = str(u) + ' ' + str(v) + ' ' + str(w) + '\n'
             f.writelines(lines)
 
+def generateRandomGraph(n,p,w):
+    filepath = "graphData/random-"+str(n)+"-"+str(p)+"-"+str(w)
+    with open(filepath,"a+") as f:
+        g = nx.gnp_random_graph(n,p)
+        # assign weights
+        for (u,v) in g.edges():
+            g[u][v]['weight'] = random.randint(1,w)
+        # write data into files
+        for (u,v,w) in g.edges(data='weight'):
+            lines = str(u) + ' ' + str(v) + ' ' + str(w) + '\n'
+            f.writelines(lines)
+
 if __name__ == "__main__":
 
     n = 100

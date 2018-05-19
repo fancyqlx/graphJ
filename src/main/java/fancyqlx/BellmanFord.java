@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
 
-public class BellmanFord {
+public class BellmanFord implements Algorithm{
 
     private Graph g;
     // a map representing a queue for sending messages

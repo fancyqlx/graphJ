@@ -11,7 +11,7 @@ import java.util.*;
  * definition of our graph, we let the weight of unweighted graph
  * be 1 for each edge.
  */
-public class TrivalBFS {
+public class TrivalBFS implements Algorithm{
 
     private Graph g;
     private int maxDist; // maximum distance in the graph
@@ -124,7 +124,7 @@ public class TrivalBFS {
         }
     }
 
-    public static void main(String[] args){
+    public static void readGraphs(){
         int n = 100;
         int m = (int)(1.2 * n);
         int w = n;
@@ -139,7 +139,7 @@ public class TrivalBFS {
             ConstructGraph constructor = new ConstructGraph(path,g);
             if(constructor.construct()){
                 // Printing graph
-                TrivalBFS alg = new TrivalBFS(g);
+                Algorithm alg = new TrivalBFS(g);
                 alg.run();
                 System.out.printf("round = %d\n",alg.getRound());
                 String resultFile = "results/TrivalBFS-"+Integer.toString(n)+
@@ -175,6 +175,10 @@ public class TrivalBFS {
                 break;
             }
         }*/
+    }
+
+    public static void main(String[] args){
+        TrivalBFS.readGraphs();
     }
 
 }
