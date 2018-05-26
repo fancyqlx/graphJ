@@ -5,38 +5,40 @@ def average(f):
     n = 0 # the number of vertices
     m = 0 # the number of edges
     r = 0 # the number of rounds
+    msg = 0 # the number of messages
     lines = f.readlines()
     num = 0
     for line in lines:
-        a,b,c = map(int,line.split())
+        a, b, c, d= map(int,line.split())
         n += a
         m += b
         r += c
+        msg += d
         num += 1
     if num == 0:
-        return n,m,r
+        return n,m,r,msg
     else:
-        return n/num,m/num,r/num
+        return n/num,m/num,r/num,msg/num
 
 def travelFiles(algName):
     dirPath = "results/"
     xn = [] # x-axis of n
-    xw = [] # x-axis of w
     ynr = [] # y-axis of r when x-axis is n
-    ywr = [] # y-axis of r when x-axis is w
+    ynmsg = [] # y-axis of msg when x-axis is n
     files = os.listdir(dirPath)
     N = 1000
     # read files that n is changed
-    for i in xrange(0,20):
-        filename = algName+"-"+str(N)
+    for i in xrange(0,10):
+        filename = algName+"-"+"random"+"-"+str(N)
         for fn in files:
             if(not os.path.isdir(fn)) and fn == filename:
                 with open(dirPath+"/"+filename,"r") as f:
-                    n,m,r = average(f)
+                    n,m,r,msg = average(f)
                     xn.append(n)
                     ynr.append(r)
+                    ynmsg.append(msg)
         N += 500
-    return xn,xw,ynr,ywr
+    return xn,ynr,ynmsg
 
 # generate pictures
 def drawFic(x,y,labelx,labely,filename):
@@ -51,9 +53,10 @@ def drawFic(x,y,labelx,labely,filename):
 if __name__ == "__main__":
     Betweenness = "Betweenness"
 
-    b_xn,b_xw,b_ynr,b_ywr = travelFiles(Betweenness)
+    b_xn,b_ynr,b_ynmsg = travelFiles(Betweenness)
     # four pictures for girth
 
 
     # two pictures for comparision
     drawFic(b_xn,b_ynr,"n","round complexity","bc_n_r")
+    drawFic(b_xn,b_ynmsg,"n","messages complexity","bc_n_msg")

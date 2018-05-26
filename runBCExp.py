@@ -16,7 +16,7 @@ def runStatistic():
 
 
 def runBC():
-    for i in xrange(0,1):
+    for i in xrange(0,5):
         print "run %d-th experiment" % i
         generateRandomGraph()
         runBetweenness()

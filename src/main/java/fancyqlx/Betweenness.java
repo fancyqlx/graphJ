@@ -16,6 +16,7 @@ public class Betweenness implements Algorithm{
     private Map<Integer, Queue<Betweenness.BFSMessage>> outMsg;
     private int D;
     private int round = 0; // round complexity counter
+    private int msgNumber = 0;
 
     public class BFSMessage extends Message implements Comparable<Betweenness.BFSMessage>{
         Integer ID;
@@ -94,6 +95,7 @@ public class Betweenness implements Algorithm{
                 if(!q.isEmpty()){
                     Betweenness.BFSMessage msg = q.poll();
                     v.broadcast(msg);
+                    this.msgNumber += v.getNumberOfNeighbors();
                 }
             }
 
@@ -121,6 +123,7 @@ public class Betweenness implements Algorithm{
 
         // simulate the rounds of computing Betweenness
         this.round += n;
+        this.msgNumber *= 2;
 
     }
 
@@ -142,7 +145,8 @@ public class Betweenness implements Algorithm{
         try{
             BufferedWriter writer = new BufferedWriter((new FileWriter(filepath,true)));
             String s = Integer.toString(g.getN()) + " " + Integer.toString(g.getM()) +
-                    " " + Integer.toString(round) +'\n';
+                    " " + Integer.toString(round) + " " + Integer.toString(msgNumber)+'\n';
+            System.out.println(s);
             writer.write(s);
             writer.close();
         }catch (IOException e){
@@ -152,7 +156,7 @@ public class Betweenness implements Algorithm{
 
     public static void readGraphs(String graphType){
         int n = 1000;
-        for(int i=0;i<20;i++){
+        for(int i=0;i<10;i++){
             System.gc();
             long startTime = System.currentTimeMillis();
             String path = "graphData/"+graphType+"-"+Integer.toString(n);

@@ -175,6 +175,10 @@ class Vertex implements Comparable<Vertex>{
         return neighbors.keySet();
     }
 
+    public int getNumberOfNeighbors(){
+        return neighbors.size();
+    }
+
     public Integer getWeight(Integer ID){
         return weights.get(ID);
     }

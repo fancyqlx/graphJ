@@ -18,6 +18,6 @@ if __name__ == "__main__":
     n = 1000
     p = 0.002
     w = 1
-    for i in range(0,20):
+    for i in range(0,10):
         generateRandomGraph(n,p,w)
         n = n + 500
