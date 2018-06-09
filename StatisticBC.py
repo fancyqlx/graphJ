@@ -74,8 +74,8 @@ if __name__ == "__main__":
 
 
     # two pictures for comparision
-    drawFic1(b_xn,b_ynr,"n","round complexity","bc_n_r")
-    drawFic1(b_xn,b_ynmsg,"n","message complexity","bc_n_msg")
+    drawFic1(b_xn,b_ynr,"Num of nodes","Rounds","bc_n_r")
+    drawFic1(b_xn,b_ynmsg,"Num of nodes","Num of messages","bc_n_msg")
 
     #drawFic2(b_xn,b_ynr,b_xn,b_ynn,"n","round complexity","bc_n_r")
     #drawFic2(b_xn,b_ynmsg,b_xn,b_ynmn,"n","message complexity","bc_n_msg")

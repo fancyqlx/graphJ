@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list id="9bcb2782-bdde-4b4b-8c05-a18af8c017c6" name="New changelist" comment="" />
     <list default="true" id="3d643df9-fde8-4be3-b547-7b6b3b4c22ec" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GenerateBCGraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/GenerateBCGraph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StatisticBC.py" beforeDir="false" afterPath="$PROJECT_DIR$/StatisticBC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-1000" beforeDir="false" afterPath="$PROJECT_DIR$/graphData/random-1000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-1500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-2000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-2500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-3000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-3500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-4000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-4500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-5000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphData/random-5500" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Betweenness-random-1000" beforeDir="false" afterPath="$PROJECT_DIR$/results/Betweenness-random-1000" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fancyqlx/Betweenness.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fancyqlx/Betweenness.java" afterDir="false" />
     </list>
+    <list id="9bcb2782-bdde-4b4b-8c05-a18af8c017c6" name="New changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Betweenness.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Betweenness.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/fancyqlx/Betweenness.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+            <state relative-caret-position="2430">
+              <caret line="145" column="35" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatisticBC.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StatisticBC.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/StatisticBC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="506">
+              <caret line="77" column="57" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -137,8 +124,8 @@
         <option value="$PROJECT_DIR$/src/main/java/fancyqlx/Graph.java" />
         <option value="$PROJECT_DIR$/runBCExp.py" />
         <option value="$PROJECT_DIR$/GenerateBCGraph.py" />
-        <option value="$PROJECT_DIR$/StatisticBC.py" />
         <option value="$PROJECT_DIR$/src/main/java/fancyqlx/Betweenness.java" />
+        <option value="$PROJECT_DIR$/StatisticBC.py" />
       </list>
     </option>
   </component>
@@ -593,8 +580,8 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50143886" side_tool="true" weight="0.32453826" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49856114" weight="0.32802126" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49856114" visible="true" weight="0.23002754" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32849604" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49856114" weight="0.23002754" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32831737" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499336" weight="0.18201439" />
       <window_info anchor="bottom" id="Run with VisualVM" order="10" weight="0.32934928" />
@@ -959,16 +946,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StatisticBC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fancyqlx/RunAlgorithm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
@@ -985,10 +962,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/fancyqlx/Betweenness.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="167" column="24" selection-start-line="167" selection-start-column="24" selection-end-line="167" selection-end-column="24" />
+        <state relative-caret-position="2430">
+          <caret line="145" column="35" selection-start-line="145" selection-start-column="35" selection-end-line="145" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/StatisticBC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="77" column="57" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
