@@ -155,7 +155,7 @@ public class Betweenness implements Algorithm{
     }
 
     public static void readGraphs(String graphType){
-        int n = 1000;
+        int n = 100;
         for(int i=0;i<10;i++){
             System.gc();
             long startTime = System.currentTimeMillis();
@@ -165,7 +165,7 @@ public class Betweenness implements Algorithm{
             runAlgorithm.run();
             long endTime = System.currentTimeMillis();
             System.out.println("Running time: "+(endTime-startTime)+" ms");
-            n = n + 500;
+            n = n + 100;
 
         }
     }

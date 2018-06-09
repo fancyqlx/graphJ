@@ -15,9 +15,9 @@ def generateRandomGraph(n,p,w):
 
 if __name__ == "__main__":
 
-    n = 1000
-    p = 0.002
+    n = 100
+    p = 0.05
     w = 1
     for i in range(0,10):
         generateRandomGraph(n,p,w)
-        n = n + 500
+        n = n + 100

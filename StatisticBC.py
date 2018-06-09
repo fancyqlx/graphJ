@@ -25,8 +25,10 @@ def travelFiles(algName):
     xn = [] # x-axis of n
     ynr = [] # y-axis of r when x-axis is n
     ynmsg = [] # y-axis of msg when x-axis is n
+    ynn = []
+    ynmn = []
     files = os.listdir(dirPath)
-    N = 1000
+    N = 100
     # read files that n is changed
     for i in xrange(0,10):
         filename = algName+"-"+"random"+"-"+str(N)
@@ -37,26 +39,43 @@ def travelFiles(algName):
                     xn.append(n)
                     ynr.append(r)
                     ynmsg.append(msg)
-        N += 500
-    return xn,ynr,ynmsg
+                    ynn.append(n)
+                    ynmn.append(m*n)
+        N += 100
+    return xn,ynr,ynmsg,ynn,ynmn
 
 # generate pictures
-def drawFic(x,y,labelx,labely,filename):
+def drawFic1(x,y,labelx,labely,filename):
     plt.plot(x,y,'k-')
     plt.xlabel(labelx)
     plt.ylabel(labely)
     plt.subplots_adjust(left=0.15,right=0.95)
-    plt.savefig("resultPics/"+filename+".png", format='png')
+    plt.savefig("resultPics/"+filename+".pdf", format='pdf')
+    #plt.show()
+    plt.close()
+
+# generate pictures
+def drawFic2(ax,ay,bx,by,labelx,labely,filename):
+    l1, = plt.plot(ax,ay,"k-")
+    l2, = plt.plot(bx,by,"k--")
+    plt.xlabel(labelx)
+    plt.ylabel(labely)
+    plt.legend(handles=[l1,l2], labels=['Experiment','Theory'], loc='best')
+    plt.subplots_adjust(left=0.15,right=0.95)
+    plt.savefig("resultPics/"+filename+".pdf", format='pdf')
     #plt.show()
     plt.close()
 
 if __name__ == "__main__":
     Betweenness = "Betweenness"
 
-    b_xn,b_ynr,b_ynmsg = travelFiles(Betweenness)
+    b_xn,b_ynr,b_ynmsg,b_ynn,b_ynmn = travelFiles(Betweenness)
     # four pictures for girth
 
 
     # two pictures for comparision
-    drawFic(b_xn,b_ynr,"n","round complexity","bc_n_r")
-    drawFic(b_xn,b_ynmsg,"n","messages complexity","bc_n_msg")
+    drawFic1(b_xn,b_ynr,"n","round complexity","bc_n_r")
+    drawFic1(b_xn,b_ynmsg,"n","message complexity","bc_n_msg")
+
+    #drawFic2(b_xn,b_ynr,b_xn,b_ynn,"n","round complexity","bc_n_r")
+    #drawFic2(b_xn,b_ynmsg,b_xn,b_ynmn,"n","message complexity","bc_n_msg")
